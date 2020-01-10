@@ -1,5 +1,6 @@
 package RunTime;
 import java.util.Random; 
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 
 public class RunTime extends javax.swing.JFrame {
@@ -46,6 +47,11 @@ public class RunTime extends javax.swing.JFrame {
         RuntimeLabel = new javax.swing.JLabel();
         Message = new javax.swing.JTextField();
         Reset = new javax.swing.JButton();
+        checkIndex = new javax.swing.JLabel();
+        ValueAtIndex = new javax.swing.JTextField();
+        checkArray = new javax.swing.JTextField();
+        checkIndex1 = new javax.swing.JLabel();
+        check = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -321,6 +327,50 @@ public class RunTime extends javax.swing.JFrame {
             }
         });
 
+        checkIndex.setBackground(new java.awt.Color(0, 0, 0));
+        checkIndex.setFont(new java.awt.Font("Calibri", 0, 21)); // NOI18N
+        checkIndex.setForeground(new java.awt.Color(153, 255, 255));
+        checkIndex.setText("Check array index              :");
+
+        ValueAtIndex.setBackground(new java.awt.Color(0, 0, 0));
+        ValueAtIndex.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        ValueAtIndex.setForeground(new java.awt.Color(204, 204, 204));
+        ValueAtIndex.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        ValueAtIndex.setDisabledTextColor(new java.awt.Color(153, 204, 0));
+        ValueAtIndex.setEnabled(false);
+        ValueAtIndex.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ValueAtIndexActionPerformed(evt);
+            }
+        });
+
+        checkArray.setBackground(new java.awt.Color(0, 0, 0));
+        checkArray.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        checkArray.setForeground(new java.awt.Color(153, 204, 0));
+        checkArray.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        checkArray.setText("0");
+        checkArray.setDisabledTextColor(new java.awt.Color(153, 204, 0));
+        checkArray.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkArrayActionPerformed(evt);
+            }
+        });
+
+        checkIndex1.setBackground(new java.awt.Color(0, 0, 0));
+        checkIndex1.setFont(new java.awt.Font("Calibri", 0, 21)); // NOI18N
+        checkIndex1.setForeground(new java.awt.Color(153, 255, 255));
+        checkIndex1.setText("View element                     :");
+
+        check.setBackground(new java.awt.Color(0, 102, 102));
+        check.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        check.setForeground(new java.awt.Color(255, 255, 255));
+        check.setText("check");
+        check.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -341,13 +391,12 @@ public class RunTime extends javax.swing.JFrame {
                                 .addComponent(arrayLength, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(20, 20, 20)
                         .addComponent(ViewArray)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 216, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 575, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ArrayLAbel, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Reset)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(Message, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -383,8 +432,23 @@ public class RunTime extends javax.swing.JFrame {
                                         .addComponent(RTJump, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
                                         .addComponent(RTLinear, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
                                         .addComponent(RTInterpolation, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                                        .addComponent(RuntimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                                        .addComponent(RuntimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(checkIndex, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(checkIndex1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(ValueAtIndex)
+                                    .addComponent(checkArray, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(206, 206, 206)
+                                        .addComponent(Reset))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(check, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 575, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(SourceCodeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -414,18 +478,21 @@ public class RunTime extends javax.swing.JFrame {
                         .addComponent(ArrayLAbel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SourceCodeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(RuntimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(SourceCodeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(RuntimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Binary, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(BinaryTest)
                             .addComponent(RTBinary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BinaryCode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(BinaryCode))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Jump, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -446,10 +513,17 @@ public class RunTime extends javax.swing.JFrame {
                             .addComponent(RTInterpolation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(55, 55, 55)
                         .addComponent(Message, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(110, 110, 110)
-                        .addComponent(Reset))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(34, Short.MAX_VALUE))
+                        .addGap(58, 58, 58)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(checkIndex, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(checkArray, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(check))
+                        .addGap(7, 7, 7)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Reset)
+                            .addComponent(ValueAtIndex, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(checkIndex1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -483,33 +557,89 @@ public class RunTime extends javax.swing.JFrame {
     }//GEN-LAST:event_RTJumpActionPerformed
 
     private void InterpolationCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InterpolationCodeActionPerformed
-        // TODO add your handling code here:
+        String code =   "int beginIndex = 0 , endIndex = length-1, pos ;\n" +
+                        "start=System.nanoTime();\n" +
+                        "while(beginIndex <= endIndex && Search>=arr[beginIndex] && Search<=arr[endIndex]){\n" +
+                        "      pos = beginIndex + (((endIndex-beginIndex)*(Search-arr[beginIndex]))/(arr[endIndex]-arr[beginIndex]));\n" +
+                        "               if(Search==arr[pos]){\n" +
+                        "                       indexFound = pos ;\n" +
+                        "                       break ;\n" +
+                        "               }\n" +
+                        "               else if(Search<arr[pos]){endIndex = pos-1;}\n" +
+                        "               else {beginIndex=pos+1;}\n" +
+                        "      }\n" +
+                        "      end = System.nanoTime();\n" +
+                        "      RTInterpolation.setText(String.valueOf(end-start));\n" +
+                        "      Message.setText((indexFound==-1)? \"Element not found\" :\"Element found at index :\" + String.valueOf(indexFound));\n" +
+                        "                break ;";
+        Code.setText(code);
     }//GEN-LAST:event_InterpolationCodeActionPerformed
 
     private void LinearCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LinearCodeActionPerformed
-       String code =
-                "\n   int indexFound = -1 ;\n " +
-                "   for(int x=0;x<value;x++){\n" +
-                "          if(Search == arr[x]){\n" +
-                "                   indexFound = x ;\n" +
-                "                   break ;\n" +
-                "          }\n" +
-                "   }\n" +
-                "   if(indexFound==-1){\n" +
-                "           System.outPrintln(\"Element not found\") ;\n" +
-                "   }\n" +
-                "   else{ \n" +
-                "           System.out.println(\"Element found at index :\" + String.valueOf(indexFound)) ;\n" +
-                "   } ; " ;
-       Code.setText(code);
+        String code ="start = System.nanoTime();\n" +
+                    "for(int x=0;x<length;x++){\n" +
+                    "       if(Search == arr[x]){\n" +
+                    "               indexFound = x ;\n" +
+                    "               break ;\n" +
+                    "       }\n" +
+                    "}\n" +
+                    "end = System.nanoTime();\n" +
+                    "RTLinear.setText(String.valueOf(end-start));\n" +
+                    "Message.setText((indexFound==-1)? \"Element not found\" :\"Element found at index :\" + String.valueOf(indexFound));\n" +
+                    "";
+        Code.setText(code);
     }//GEN-LAST:event_LinearCodeActionPerformed
 
     private void JumpCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JumpCodeActionPerformed
-        // TODO add your handling code here:
+        String code =   "int block = (int)Math.floor(Math.sqrt(length));\n" +
+                        "int jump =block-1 ;\n" +
+                        "indexFound = -1;\n" +
+                        "start = System.nanoTime();\n" +
+                        "while(jump <= length){\n" +
+                        "       if(Search==arr[jump]){\n" +
+                        "               indexFound = jump;\n" +
+                        "               break;\n" +
+                        "       }\n" +
+                        "       else if(Search<arr[jump]){\n" +
+                        "               for(int x=(jump-block+1);x<jump;x++){\n" +
+                        "                       if(Search ==arr[x]) {\n" +
+                        "                                indexFound=x ;\n" +
+                        "                                break ;\n" +
+                        "                       }\n" +
+                        "               }\n" +
+                        "               break;\n" +
+                        "       }\n" +
+                        "       else{\n" +
+                        "               jump=jump+block;\n" +
+                        "               if(jump>length && jump!=length)jump=length ;\n" +
+                        "       }\n" +
+                        "}\n" +
+                        "end = System.nanoTime();\n" +
+                        "RTJump.setText(String.valueOf(end-start));\n" +
+                        "Message.setText((indexFound==-1)? \"Element not found\" :\"Element found at index :\" + String.valueOf(indexFound));\n" +
+                        "break ;\n" +
+"                ";
+        Code.setText(code);
     }//GEN-LAST:event_JumpCodeActionPerformed
 
     private void BinaryCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BinaryCodeActionPerformed
-        // TODO add your handling code here:
+        String code =   "int arrEnd = length , arrBeg = 0 , mid = (arrEnd-arrBeg)/2 ;\n" +
+                        "indexFound = -1;\n" +
+                        "start = System.nanoTime();\n" +
+                        "while(arrBeg<=arrEnd-1){\n" +
+                        "       if(Search == arr[mid]){\n" +
+                        "               indexFound = mid ;\n" +
+                        "               break ;\n" +
+                        "       }\n" +
+                        "       else if(Search > arr[mid]){arrBeg=++mid ;}\n" +
+                        "       else{arrEnd=--mid ;}\n" +
+                        "       mid = (arrEnd+arrBeg)/2 ;\n" +
+                        "}\n" +
+                        "end = System.nanoTime();\n" +
+                        "RTBinary.setText(String.valueOf(end-start));                \n" +
+                        "Message.setText((indexFound==-1)? \"Element not found\" :\"Element found at index :\" + String.valueOf(indexFound));\n" +
+"                break ;";
+        Code.setText(code);
     }//GEN-LAST:event_BinaryCodeActionPerformed
 
     private void InterpolationTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InterpolationTestActionPerformed
@@ -568,6 +698,18 @@ public class RunTime extends javax.swing.JFrame {
 
     }//GEN-LAST:event_MessageActionPerformed
 
+    private void ValueAtIndexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ValueAtIndexActionPerformed
+
+    }//GEN-LAST:event_ValueAtIndexActionPerformed
+
+    private void checkArrayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkArrayActionPerformed
+        
+    }//GEN-LAST:event_checkArrayActionPerformed
+
+    private void checkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkActionPerformed
+         ValueAtIndex.setText(String.valueOf(arr[Integer.parseInt(checkArray.getText())]));
+    }//GEN-LAST:event_checkActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {  
@@ -579,27 +721,25 @@ public class RunTime extends javax.swing.JFrame {
     }
     
     public void createArray(){
-        int lineLength =1 ;
+        int lineLength = 1 ;
         Random rd = new Random();
         int value = Integer.parseInt(arrayLength.getText());
         arrValues = " {" ;
-        for(int x=0;x<value;x++){
+        for(int x=0 ; x<value ; x++){
             arr[x] = rd.nextInt(value);
-            if(lineLength%24 != 0){
-            arrValues = arrValues + " " + String.valueOf(arr[x])+ " ,";
-            }
-            else{
-            arrValues = arrValues + " " + String.valueOf(arr[x])+ "\n ";
-            }
+            if(lineLength%24 != 0){arrValues = arrValues + " " + String.valueOf(arr[x])+ " ,";}
+            else{arrValues = arrValues + " " + String.valueOf(arr[x])+ "\n ";}
             lineLength++ ;
         }
         arrValues = arrValues + "}" ;
+        Arrays.sort(arr,0,value);
+                
     }
     
     public void Declare(int method){
         int indexFound = -1 ;
         long start , end ;
-        int value = Integer.parseInt(arrayLength.getText());
+        int length = Integer.parseInt(arrayLength.getText());
         int Search = Integer.parseInt(Value.getText());
         
         if(arrValues==null){
@@ -608,41 +748,86 @@ public class RunTime extends javax.swing.JFrame {
         
         switch (method) {
             case 1 :
-                RTBinary.setText("Binary");
+                int arrEnd = length , arrBeg = 0 , mid = (arrEnd-arrBeg)/2 ;
+                indexFound = -1;
+                start = System.nanoTime();
+                while(arrBeg<=arrEnd-1){
+                    if(Search == arr[mid]){
+                        indexFound = mid ;
+                        break ;
+                    }
+                    else if(Search > arr[mid]){arrBeg=++mid ;}
+                    else{arrEnd=--mid ;}
+                    mid = (arrEnd+arrBeg)/2 ;
+                }
+                end = System.nanoTime();
+                RTBinary.setText(String.valueOf(end-start));                
+                Message.setText((indexFound==-1)? "Element not found" :"Element found at index :" + String.valueOf(indexFound));
                 break ;
+                
             case 2 :
-                RTJump.setText("Jump");
+                int block = (int)Math.floor(Math.sqrt(length));
+                int jump =block-1 ;
+                indexFound = -1;
+                start = System.nanoTime();
+                while(jump <= length){
+                    if(Search==arr[jump]){
+                        indexFound = jump;
+                        break;
+                    }
+                    else if(Search<arr[jump]){
+                        for(int x=(jump-block+1);x<jump;x++){
+                            if(Search ==arr[x]) {
+                                indexFound=x ;
+                                break ;
+                            }
+                        }
+                        break;
+                    }
+                    else{
+                        jump=jump+block;
+                        if(jump>length && jump!=length)jump=length ;
+                    }
+                }
+                end = System.nanoTime();
+                RTJump.setText(String.valueOf(end-start));
+                Message.setText((indexFound==-1)? "Element not found" :"Element found at index :" + String.valueOf(indexFound));
                 break ;
+                
             case 3 :
                 start = System.nanoTime();
-                for(int x=0;x<value;x++){
+                for(int x=0;x<length;x++){
                     if(Search == arr[x]){
                         indexFound = x ;
-                        System.out.println(indexFound);
                         break ;
                     }
                 }
                 end = System.nanoTime();
                 RTLinear.setText(String.valueOf(end-start));
-                if(indexFound==-1){
-                    Message.setText("Element not found");
-                }
-                else{
-                    Message.setText("Element found at index :" + String.valueOf(indexFound));
-                }
+                Message.setText((indexFound==-1)? "Element not found" :"Element found at index :" + String.valueOf(indexFound));
                 break ;
-            case 4 : 
-               RTInterpolation.setText("Inter");
-               break ;
-            default :
-               break ;
                 
-        }
-        
+            case 4 : 
+                int beginIndex = 0 , endIndex = length-1, pos ;
+                start=System.nanoTime();
+                while(beginIndex <= endIndex && Search>=arr[beginIndex] && Search<=arr[endIndex]){
+                    pos = beginIndex + (((endIndex-beginIndex)*(Search-arr[beginIndex]))/(arr[endIndex]-arr[beginIndex]));
+                    System.out.println("pos is :" + pos);
+                    if(Search==arr[pos]){
+                        indexFound = pos ;
+                        break ;
+                        }
+                    else if(Search<arr[pos]){endIndex = pos-1;}
+                    else {beginIndex=pos+1;}
+                }
+                end = System.nanoTime();
+                RTInterpolation.setText(String.valueOf(end-start));
+                Message.setText((indexFound==-1)? "Element not found" :"Element found at index :" + String.valueOf(indexFound));
+                break ;   
+            default : break ; 
+        }   
     }
     
-    
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea Array;
     private javax.swing.JLabel ArrayLAbel;
@@ -671,8 +856,13 @@ public class RunTime extends javax.swing.JFrame {
     private javax.swing.JLabel RuntimeLabel;
     private javax.swing.JLabel SourceCodeLabel;
     private javax.swing.JTextField Value;
+    private javax.swing.JTextField ValueAtIndex;
     private javax.swing.JButton ViewArray;
     private javax.swing.JTextField arrayLength;
+    private javax.swing.JButton check;
+    private javax.swing.JTextField checkArray;
+    private javax.swing.JLabel checkIndex;
+    private javax.swing.JLabel checkIndex1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
